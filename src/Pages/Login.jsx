@@ -3,6 +3,9 @@ import bgimage from '..//Resources/LoginImage.png'
 
 import { useRef } from 'react'
 import { useHistory } from 'react-router-dom'
+import { Password } from 'primereact/password';
+import { InputText } from 'primereact/inputtext';
+import './PasswordStyle.css';
 
 import SimpleButton from '../Components/SimpleButton'
 
@@ -19,17 +22,18 @@ const Login = () => {
     const email = useRef(null), password = useRef(null)
 
     return(
+        <>
         <BackDivLogin className="flex flex-col w-screen h-screen justify-center ">
             <div className="absolute w-screen h-screen bg-black opacity-60"/>
-            <div className="z-10">
-                <div className="w-full md:w-1/2">
-                    <div className="flex flex-col justify-center mx-5">
+            <div className="flex w-screen md:w-1/2 flex-row z-10">
+                <div className="flex flex-col w-full md:w-1/2">
+                    <div className="flex flex-col justify-center mx-3">
                         <label className="mt-3 text-lg text-white font-bold text-blue-600">Email</label>
-                        <input ref={email} type="text" className="my-3 border rounded shadow-md text-gray-600 px-2 focus:border-purple-700 focus:ring-1 focus:ring-purple-700 outline-none"></input>
+                        <InputText ref={email} className="border rounded shadow-md text-gray-600 px-2 focus:border-purple-700 focus:ring-1 focus:ring-purple-700 outline-none"/>
                     </div>
-                    <div className="mt-5 flex flex-col justify-center mx-5">
+                    <div className="mt-5 flex flex-col justify-center mx-3">
                         <label className="mt-3 text-lg text-white font-bold text-blue-600">Password</label>
-                        <input ref={password} type="password" className="my-3 border rounded shadow-md text-gray-600 px-2 focus:border-purple-700 focus:ring-1 focus:ring-purple-700 outline-none"></input>
+                        <Password ref={password} toggleMask className="rounded shadow-md text-gray-600  focus:border-purple-700 focus:ring-1 focus:ring-purple-700 outline-none"/>
                     </div>
                     
                     <div className="flex flex-col w-full justify-center items-center mt-5">    
@@ -42,8 +46,13 @@ const Login = () => {
                         >ó registrate</p>
                     </div>
                 </div>
+
+                <div className="hidden w-full md:w-1/2 md:flex">
+
+                </div>
             </div>
         </BackDivLogin>
+        </>
     )
 }
 
